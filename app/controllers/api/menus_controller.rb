@@ -21,7 +21,7 @@ before_action :set_menu, only: [:update, :destroy]
 
   def destroy
     @menu.destroy
-    render json: { message: "deleted" }
+    render json: { message: "Menu deleted" }
   end
 
   private
