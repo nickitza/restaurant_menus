@@ -7,9 +7,17 @@ before_action :set_item, only: [:update, :destroy]
   end
 
   def create
+    item = Item.new(item_params)
+    if item.save
+      render json: item
+    else
+      render json: { errors: item.errors }, status: :unprocessable_entity
+    end
   end
 
   def update
+    @item.update(item_params)
+    render json: @item
   end
 
   def destroy
